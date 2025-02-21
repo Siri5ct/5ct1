@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CMRIT Hostel Outpass System</title>
+        <style>
+            body{
+                font-family: 'Arial',sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f8f8f8;
+            }
+            header{
+                background-color: #286e42;
+                color: #fff;
+                text-align: center;
+                padding: 20px 0;
+            }
+            main{
+                padding: 20px;
+            }
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+            }
+            .input-field{
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            .submit-btn{
+                padding: 10px 20px;
+                background-color: #4caf50;
+                color:white;
+                border:name;
+                border-radius: 4px;
+                cursor: painter;
+                transition: background-color 0.3s ease;
+            }
+            .submit-btn:hover{
+                background-color: #45a049;
+            }
+            .output{
+                max-width: 500px;
+                margin-top: 20px;
+                padding: 20px;
+                background: #f2f2f2;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                color: #333;
+            }
+            footer{
+                background-color: #333333;
+                color:#fff;
+                text-align: center;
+                padding:10px 0;
+                width:100%;
+            }
+            .success-message{
+                color: #008000;
+                margin-bottom: 20px;
+            }
+            ul{
+                list-style: none;
+                padding: 0;
+            }
+            li{
+                border:1px solid #ccc;
+                border-radius: 8px;
+                margin-bottom: 10px;
+                padding: 10px;
+            }
+            li strong{
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>CMRIT Hostel Outpass System</h1>
+        </header>
+        <main>
+            <div class="container">
+                {% if success-message %}
+                    <div class="success-message">{{ success-message }}</div>
+                {% endif %}
+                 <h2>Outpass Requests</h2>
+                {% if outpass_requests %}
+                    <ul>
+                        {% for request in outpass_requests %}
+                            <li>
+                                <strong>Student Name:</strong> {{ request.student_name }}<br>
+                                <strong>Roll Number:</strong> {{ request.roll_number }}<br>
+                                <strong>Student Mobile:</strong> {{ request.student_mobile }}<br>
+                                <strong>Parent's Mobile:</strong> {{ requests.parent_mobile }}<br>
+                                <strong>Reason:</strong> {{ requests.reason }}<br>
+                                <strong>Status:</strong> {{ requests.status }}<br>
+                            
+                            </li>
+                        {% endfor %}
+            
+                    </ul>
+                    
+                {% else %}
+                    <p>No outpass requests yet.</p>
+                {% endif %}
+
+            </div>
+        </main>
+         <footer>
+            <p style="margin: 0;">&copy; 2023 CMRIT. All rights reserved.</p>
+         </footer>
+    </body>
+</html>
