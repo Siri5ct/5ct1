@@ -1,16 +1,17 @@
-from flask import Flask, render_template, request, redirect, url_for, abort
+import os
+from flask import Flask, render_template, request, redirect, url_for
 from flask_mail import Mail, Message
 
 app = Flask(__name__)
 
-# Email Configuration
+# Email Configuration (Use environment variables for security)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USE_SSL'] = False
-app.config['MAIL_USERNAME'] = '23r01a05ct@gmail.com'
-app.config['MAIL_PASSWORD'] = '23r01a05cr'
-app.config['MAIL_DEFAULT_SENDER'] = '23r01a05ct@gmail.com'
+app.config['MAIL_USE_TLS'] = True  # Using TLS for port 587
+app.config['MAIL_USE_SSL'] = False  # Ensure SSL is disabled for port 587
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')  # Set in environment variables
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')  # Set in environment variables
+app.config['MAIL_DEFAULT_SENDER'] = app.config['MAIL_USERNAME']
 
 mail = Mail(app)
 
@@ -42,7 +43,7 @@ def submit_form():
             'status': 'Pending',
             'approve_link': approve_link,
             'reject_link': reject_link
-        })
+        })  # <-- Fix: Closing curly brace added
 
         send_approval_email(student_name, roll_number, student_mobile, parent_mobile, reason, request_index)
         
@@ -97,7 +98,7 @@ def send_approval_email(student_name, roll_number, student_mobile, parent_mobile
             f"Reject: {reject_link}"
         )
 
-        msg = Message(subject=subject, recipients=["23r01a05ct@gmail.com"])
+        msg = Message(subject=subject, recipients=[os.environ.get('MAIL_USERNAME')])  # Fix: Ensure recipients is a list
         msg.body = body
         mail.send(msg)
 
