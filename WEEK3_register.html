@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+         body
+         {
+              text-align: center; font-family: sans-serif;
+               }   
+         h1
+         {
+            font-size: 20px;
+             }  
+         
+table tr td 
+{
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+fieldset
+{    
+    width:500px;
+     text-align: center;
+     margin: auto;
+    }
+     </style>       
+      
+    <title>Register</title>
+    </head>
+    <script defer src="register.js">
+     </script>
+    <body>
+    <center>
+        <h1>Registration</h1>
+        <form name="frm" method="POST" action="login.html" onSubmit="return validate()">            
+            <fieldset align="center">
+               <table align="center">                    
+                     <tr><td>First Name: </td><td><input type="text" name="fname"  value="" size="50" required/></td></tr>
+                     <tr><td>Last Name: </td><td> <input type="text" name="lname" value="" size="50" required/></td></tr>
+                     <tr><td>Phone No: </td><td>  <input type="text" name="phone" value="" size="50" required/></td></tr>
+                    <tr><td>Mail id:</td><td><input type="email" name="mailid" value="" size="50" required/></td></tr>
+                    <tr><td>Gender:</td>
+                        <td>Male:  <input type="radio" name="gender" value="male" >
+                            Female:   <input type="radio" name="gender" value="female"></td></tr>
+                    <tr><td>DOB :</td><td><input type="date" name="dob" size="50" required/></td></tr>                    
+                    <tr><td>Username:</td><td><input type="text" name="uname" value="" size="50" required/></td></tr>
+                    <tr><td>Password:</td><td><input type="password" name="pwd" value="" size="50" required/></td></tr>                    
+                    <tr><td>Age:</td><td><input type="text" name="age" value="" size="50" required/></td></tr>
+                </table>
+                <input type="submit" value="SUBMIT" name="submit" />          
+            </fieldset>
+        </form>   
+        </center>
+    </body>
+    <div id="footer">
+        Copyright ©  CMRIT_2024
+    </div>
+</html>
